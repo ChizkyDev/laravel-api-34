@@ -1,14 +1,17 @@
-<?php 
+<?php
 
-namespace App\Models; 
+namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model; 
+use Illuminate\Database\Eloquent\Model;
 
-class Product extends Model 
-{ 
-    use HasFactory; 
 
-    protected $fillable = ['name', 'price', 'description', 'stock']; 
+class Product extends Model
+{
+    protected $fillable = ['name', 'price', 'stock', 'description'];
+
+
+    public function kategori()
+    {
+        return $this->belongsTo(Kategori::class, 'id_kategori', 'id');
+    }
 }
-
